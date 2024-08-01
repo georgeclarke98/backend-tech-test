@@ -10,7 +10,8 @@ Your task is to architect and implement the new waiting list system.
 
 There are two components required for this test:
 
-(A) A waiting list database
+(A) A waiting list database 
+
 (B) API endpoints required
 
 The user flow is as follows:
