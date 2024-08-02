@@ -2,6 +2,14 @@
 
 This repository contains the backend technical test for software engineers at Ffern.
 
+## What we are testing
+
+(1) How do you approach system design? What choices do you make that reflect system architecture virtues such as scalability, simplicity, robustness, etc.
+
+(2) How full stack are you? We are primarily focused on the backend in this test, but there is scope to flex your frontend muscled with the addition of a slim frontend.
+
+(3) How do you approach access controls (authentication / authorisation) and testing?
+
 ## The problem
 
 Ffern manages a waiting list of prospective customers. The systems setup to manage the waiting list is not fit for purpose. The waiting list needs to be re-implemented.
@@ -12,7 +20,7 @@ There are two components required for this test:
 
 (A) A waiting list database 
 
-(B) API endpoints required
+(B) API endpoints
 
 The user flow is as follows:
 
