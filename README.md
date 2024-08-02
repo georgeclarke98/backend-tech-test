@@ -46,8 +46,8 @@ Some further points to note:
 
 Postgres / PostgreSQL should be used, ideally deployed via Supabase.io.
 
-API endpoints should be serverless. A simple Vercel API is acceptable.
+API endpoints should be serverless. A simple Vercel / Next.js API is acceptable.
 
 For the frontend, a Next.js application should be created. This can be a single page with a signup form. Don't fret over the UI / design.
 
-All endpoints should be adequetly authenticated.
+All endpoints should be adequetly authenticated. Request and response payloads should be adequetly validated.
