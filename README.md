@@ -1,4 +1,4 @@
-# Ffern Backend Tech Test
+# Ffern Backend / Full Stack Tech Test
 
 This repository contains the backend technical test for software engineers at Ffern.
 
