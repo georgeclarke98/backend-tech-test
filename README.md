@@ -4,11 +4,15 @@ This repository contains the backend technical test for software engineers at Ff
 
 ## What we are testing
 
-(1) How do you approach system design? What choices do you make that reflect system architecture virtues such as scalability, simplicity, robustness, etc.
+(1) How do you approach system design? What choices do you make that reflect system architecture virtues such as scalability, simplicity, and robustness.
 
-(2) How full stack are you? We are primarily focused on the backend in this test, but there is scope to flex your frontend muscled with the addition of a slim frontend.
+(2) What models do you choose to represent resources? Are these appropriate for the represented entities?
 
-(3) How do you approach access controls (authentication / authorisation) and testing?
+(3) How full stack are you?
+
+(4) How do you approach access controls (authentication / authorisation)?
+
+(5) How do you approach testing?
 
 ## The problem
 
@@ -16,27 +20,27 @@ Ffern manages a waiting list of prospective customers. The systems setup to mana
 
 Your task is to architect and implement the new waiting list system.
 
-There are two components required for this test:
+There are three components required for this test:
 
 (A) A waiting list database 
 
 (B) API endpoints
 
+(C) Sign up page
+
 The user flow is as follows:
 
-1. User signs up on the waiting list on the Ffern website.
-2. User is texted an opt in message.
-3. User replies with their first name.
-4. When places are available, a non-technical staff member makes a "trigger" set to a certain date, for a certain cohort.
-5. When the trigger is activated, members of the relevant cohort are given the opportunity to join the ledger.
-6. After 48 hours, that opportunity is retracted.
+1. User signs up on the waiting list on the website. They give (a) their phone number, and (b) their name.
+2. When places are available, a non-technical staff member makes a "trigger" set to a certain date, for a certain cohort.
+3. When the trigger is activated, members of the relevant cohort are given the opportunity to join the ledger.
+4. After 48 hours, that opportunity is retracted.
 
 Some further points to note:
 
 - Analytics data for users is sent from the website, and must be stored for analysis. Analytics will be sent as a JSON object with an unknown structure.
 - Triggers will specify regions (e.g., EU/UK/US).
 - Users may opt out of the waiting list at any point.
-- The staff member creating triggers may be non-technical. A process for this is not required for this test, but a plan for its implementation is desirable.
+- The staff member creating triggers may be non-technical. A process for creating a trigger is not required, but a plan for its implementation is desirable.
 
 ## Technical Requirements:
 
@@ -44,6 +48,6 @@ Postgres / PostgreSQL should be used, ideally deployed via Supabase.io.
 
 API endpoints should be serverless. A simple Vercel API is acceptable.
 
-If time permits, a simple Next.js frontend could be implemented, containing a phone input that triggers the sign up flow.
+For the frontend, a Next.js application should be created. This can be a single page with a signup form. Don't fret over the UI / design.
 
 All endpoints should be adequetly authenticated.
