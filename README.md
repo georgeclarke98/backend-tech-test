@@ -28,7 +28,6 @@ Some further points to note:
 - Analytics data for users is sent from the website, and must be stored for analysis.
 - Triggers will specify regions (e.g., EU/UK/US).
 - Users may opt out of the waiting list at any point.
-- Users may wish to instead join a "Warm list". Members on the warm list will be kept on the Waiting List, but onboarded via dedicated long term flows.
 - The staff member creating triggers may be non-technical. A process for this is not required for this test, but a plan for its implementation is desirable.
 
 ## Technical Requirements:
