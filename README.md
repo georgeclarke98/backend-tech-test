@@ -25,7 +25,7 @@ The user flow is as follows:
 
 Some further points to note:
 
-- Analytics data for users is sent from the website, and must be stored for analysis.
+- Analytics data for users is sent from the website, and must be stored for analysis. Analytics will be sent as a JSON object with an unknown structure.
 - Triggers will specify regions (e.g., EU/UK/US).
 - Users may opt out of the waiting list at any point.
 - The staff member creating triggers may be non-technical. A process for this is not required for this test, but a plan for its implementation is desirable.
