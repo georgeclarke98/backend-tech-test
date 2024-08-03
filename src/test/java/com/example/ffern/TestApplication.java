@@ -1,6 +1,5 @@
 package com.example.ffern;
 
-import com.example.Application;
 import org.springframework.boot.SpringApplication;
 
 public class TestApplication {
