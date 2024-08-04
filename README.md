@@ -51,3 +51,12 @@ API endpoints should be serverless. A simple Vercel / Next.js API is acceptable.
 For the frontend, a Next.js application should be created. This can be a single page with a signup form. Don't fret over the UI / design.
 
 All endpoints should be adequetly authenticated. Request and response payloads should be adequetly validated.
+
+
+## Running the application Locally:
+
+1. Run `mvn package`
+2. Run `docker build -t ffern-backend-coding-test .`
+3. Run `docker run -p 8080:8080  ffern-backend-coding-test`
+
+The API will then be accessible on http://localhost:8080/ffern/users

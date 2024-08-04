@@ -1,3 +1,8 @@
+CREATE SEQUENCE users_seq;
+CREATE SEQUENCE waitlist_seq;
+CREATE SEQUENCE user_analytics_seq;
+CREATE SEQUENCE triggers_seq;
+
 CREATE TABLE users
 (
     id           SERIAL PRIMARY KEY NOT NULL,

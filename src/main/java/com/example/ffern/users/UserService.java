@@ -1,9 +1,6 @@
 package com.example.ffern.users;
 
-import com.example.ffern.users.json.UserAnalyticsRequest;
-import com.example.ffern.users.json.UserAnalyticsResponse;
-import com.example.ffern.users.json.UserRequest;
-import com.example.ffern.users.json.UserResponse;
+import com.example.ffern.users.json.*;
 import com.example.ffern.users.repository.UserAnalyticsEntity;
 import com.example.ffern.users.repository.UserAnalyticsRepository;
 import com.example.ffern.users.repository.UserEntity;
@@ -88,7 +85,7 @@ public class UserService {
         userRepository.delete(user);
     }
 
-    public UserResponse optIn(Long id) {
+    public UserResponse optIn(Long id, OptInRequest body) {
 
         log.info("Opting in user with id: {}", id);
 
@@ -98,11 +95,13 @@ public class UserService {
 
         user.setOptIn(true);
 
-        waitlistRepository.save(WaitlistEntity.builder()
-                                              .waitlistUser(user)
-                                              .cohort(user.getWaitlist().getCohort())
-                                              .region(user.getWaitlist().getRegion())
-                                              .build());
+        WaitlistEntity waitlistEntity = waitlistRepository.save(WaitlistEntity.builder()
+                                                                              .waitlistUser(user)
+                                                                              .cohort(body.cohort())
+                                                                              .region(body.region())
+                                                                              .build());
+
+        user.setWaitlist(waitlistEntity);
 
         return toResponse(userRepository.save(user));
     }
@@ -115,9 +114,12 @@ public class UserService {
                 () -> new ResponseStatusException(NOT_FOUND, format("User with Id %s not found", id))
         );
 
-        user.setOptIn(false);
+        WaitlistEntity waitlist = user.getWaitlist();
 
-        waitlistRepository.delete(user.getWaitlist());
+        user.setOptIn(false);
+        user.setWaitlist(null);
+
+        waitlistRepository.delete(waitlist);
 
         return toResponse(userRepository.save(user));
     }

@@ -1,15 +1,11 @@
 package com.example.ffern.users;
 
-import com.example.ffern.users.json.UserAnalyticsRequest;
-import com.example.ffern.users.json.UserAnalyticsResponse;
-import com.example.ffern.users.json.UserRequest;
-import com.example.ffern.users.json.UserResponse;
+import com.example.ffern.users.json.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.parser.Entity;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -18,6 +14,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Slf4j
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/ffern/users")
 public class UserController {
@@ -75,11 +72,11 @@ public class UserController {
 
     @PutMapping(value = "/opt-in", produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<UserResponse> optInUser(@NotNull(message = "Please provide a user ID") @RequestParam
-                                                  Long userId) {
+                                                  Long userId, @Valid @RequestBody OptInRequest body) {
 
         log.info("PUT request to opt in user with id: {}", userId);
 
-        return ResponseEntity.ok(userService.optIn(userId));
+        return ResponseEntity.ok(userService.optIn(userId, body));
     }
 
     @PostMapping(value = "/analytics", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)

@@ -6,6 +6,5 @@ import java.util.Map;
 
 @Builder
 public record UserAnalyticsRequest(
-        Map<String, Object> data,
-        String createdBy
+        Map<String, Object> data
 ) {}
